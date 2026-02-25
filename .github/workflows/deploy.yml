@@ -45,7 +45,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
+        run: npm ci --prefer-offline --no-audit --legacy-peer-deps
 
       - name: Run ESLint
         run: npx next lint --max-warnings 0 || echo "::warning::Lint warnings detected (non-blocking)"
@@ -83,7 +83,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
+        run: npm ci --prefer-offline --no-audit --legacy-peer-deps
 
       - name: Build Next.js (static export)
         env:
