@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { NumberTicker } from "@/components/animations/NumberTicker";
+import { assetPath } from "@/lib/utils";
 import { Map, Scale, BookOpen, Calendar, Newspaper, FileText, ArrowRight } from "lucide-react";
 
 /* Full class strings for Tailwind JIT — dynamic concatenation gets purged */
@@ -106,7 +107,7 @@ export function BentoGridSection() {
                 {/* India cultural map background */}
                 <div className="absolute inset-0 opacity-[0.08] transition-opacity duration-500 group-hover:opacity-[0.15]">
                   <Image
-                    src="/images/india-cultural-map.jpg"
+                    src={assetPath("/images/india-cultural-map.jpg")}
                     alt=""
                     fill
                     className="object-contain object-center"

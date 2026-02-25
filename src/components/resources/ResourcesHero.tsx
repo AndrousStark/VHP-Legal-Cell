@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FolderOpen } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export function ResourcesHero() {
   return (
@@ -10,7 +11,7 @@ export function ResourcesHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/temple-diyas.jpg"
+          src={assetPath("/images/temple-diyas.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"

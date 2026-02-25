@@ -4,22 +4,10 @@
    VHP LEGAL CELL — DESIGN SYSTEM: "SAFFRON AUTHORITY"
    ═══════════════════════════════════════════════════════════ */
 
-/* ─── Font Faces ─── */
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/Satoshi-VariableItalic.woff2") format("woff2");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: italic;
-}
+/* ─── Font Faces ───
+   @font-face declarations moved to layout.tsx <style> tag
+   so that basePath can be injected for GitHub Pages deployment.
+─── */
 
 /* ─── CSS Custom Properties (Design Tokens) ─── */
 :root {

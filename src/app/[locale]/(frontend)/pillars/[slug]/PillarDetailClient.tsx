@@ -79,7 +79,7 @@ export default function PillarDetailClient({ slug }: { slug: string }) {
     <div className="min-h-screen bg-cream">
       {/* Hero */}
       <div className="relative overflow-hidden bg-gradient-to-br from-maroon-dark to-maroon px-4 pb-16 pt-8">
-        <div className="absolute inset-0 bg-[url('/grain.png')] opacity-[0.02]" />
+        <div className="absolute inset-0 opacity-[0.02]" />
         <div className="relative mx-auto max-w-4xl">
           <Link
             href="/pillars"

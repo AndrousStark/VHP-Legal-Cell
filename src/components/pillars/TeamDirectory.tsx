@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TEAM_MEMBERS, type TeamMember } from "@/lib/mock-data";
 import { KHETRAS } from "@/lib/map-config";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import Image from "next/image";
 import { Search, LayoutGrid, List, Scale, MapPin, ArrowRight } from "lucide-react";
 
@@ -29,7 +29,7 @@ function MemberCard({ member }: { member: TeamMember }) {
         <div className="relative flex h-48 items-center justify-center bg-gradient-to-br from-saffron/5 to-gold/5">
           {member.photo ? (
             <div className="relative h-full w-full">
-              <Image src={member.photo} alt={member.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, 300px" />
+              <Image src={assetPath(member.photo)} alt={member.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, 300px" />
               <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark/30 to-transparent" />
             </div>
           ) : (
@@ -105,7 +105,7 @@ function MemberListRow({ member }: { member: TeamMember }) {
         {/* Avatar */}
         {member.photo ? (
           <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gold/20">
-            <Image src={member.photo} alt={member.name} fill className="object-cover" sizes="48px" />
+            <Image src={assetPath(member.photo)} alt={member.name} fill className="object-cover" sizes="48px" />
           </div>
         ) : (
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold/20 bg-cream">

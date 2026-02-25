@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { assetPath } from "@/lib/utils";
 import type { EnhancedProfile } from "@/lib/team-profiles";
 import {
   ArrowLeft,
@@ -609,7 +610,7 @@ export function EnhancedProfileView({ profile }: { profile: EnhancedProfile }) {
         {/* Background decorative elements */}
         <div className="absolute inset-0">
           <Image
-            src="/images/supreme-court.jpg"
+            src={assetPath("/images/supreme-court.jpg")}
             alt=""
             fill
             className="object-cover opacity-[0.07]"
@@ -643,7 +644,7 @@ export function EnhancedProfileView({ profile }: { profile: EnhancedProfile }) {
               {profile.photo ? (
                 <div className="relative h-44 w-44 overflow-hidden rounded-2xl border-[3px] border-gold/30 bg-maroon-dark/50 shadow-xl shadow-black/20 lg:h-52 lg:w-52">
                   <Image
-                    src={profile.photo}
+                    src={assetPath(profile.photo)}
                     alt={profile.name}
                     fill
                     className="object-cover object-top"

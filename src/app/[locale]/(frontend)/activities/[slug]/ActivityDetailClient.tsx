@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { ACTIVITIES } from "@/lib/mock-data";
 import { ACTIVITY_TYPES } from "@/lib/constants";
+import { assetPath } from "@/lib/utils";
 import {
   ArrowLeft,
   CalendarCheck,
@@ -118,7 +119,7 @@ export default function ActivityDetailClient({ slug }: { slug: string }) {
         {activity.image && (
           <div className="absolute inset-0">
             <Image
-              src={activity.image}
+              src={assetPath(activity.image)}
               alt=""
               fill
               className="object-cover opacity-[0.12]"
@@ -308,7 +309,7 @@ export default function ActivityDetailClient({ slug }: { slug: string }) {
                     <div className="overflow-hidden rounded-2xl border border-gold/10 shadow-sm">
                       <div className="relative h-64 md:h-80">
                         <Image
-                          src={activity.image}
+                          src={assetPath(activity.image)}
                           alt={activity.title}
                           fill
                           className="object-cover"
@@ -643,7 +644,7 @@ export default function ActivityDetailClient({ slug }: { slug: string }) {
                 >
                   {related.image && (
                     <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
-                      <Image src={related.image} alt="" fill className="object-cover" sizes="64px" />
+                      <Image src={assetPath(related.image)} alt="" fill className="object-cover" sizes="64px" />
                     </div>
                   )}
                   <div className="min-w-0 flex-1">

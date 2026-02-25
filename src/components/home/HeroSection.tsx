@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { FlipWords } from "@/components/animations/FlipWords";
+import { assetPath } from "@/lib/utils";
 import { Scale, ArrowRight, Users } from "lucide-react";
 import Image from "next/image";
 
@@ -101,7 +102,7 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/supreme-court.jpg"
+          src={assetPath("/images/supreme-court.jpg")}
           alt=""
           fill
           className="object-cover object-center"
@@ -208,7 +209,7 @@ export function HeroSection() {
       {/* VHP Logo watermark */}
       <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-[0.06] hidden lg:block">
         <Image
-          src="/images/vhp-logo.jpg"
+          src={assetPath("/images/vhp-logo.jpg")}
           alt=""
           width={300}
           height={300}

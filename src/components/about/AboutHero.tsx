@@ -3,6 +3,7 @@
 import { LampEffect } from "@/components/animations/LampEffect";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 export function AboutHero() {
   return (
@@ -10,7 +11,7 @@ export function AboutHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/peacock-temple.jpg"
+          src={assetPath("/images/peacock-temple.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"

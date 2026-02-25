@@ -9,6 +9,8 @@ import { AuthProvider } from "@/lib/auth-context";
 import { CommandPalette } from "@/components/search/CommandPalette";
 import "@/styles/globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 /* ─── Google Fonts ─── */
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -55,13 +57,13 @@ export const metadata: Metadata = {
     "Vishwa Hindu Parishad Legal Cell (Vidhi Prakoshtha) — Protecting Dharma, Serving Justice across India.",
   metadataBase: new URL("https://vhplegalcell.org"),
   icons: {
-    icon: "/images/favicon.png",
-    apple: "/images/favicon.png",
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/favicon.png`,
+    apple: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/favicon.png`,
   },
   openGraph: {
     type: "website",
     siteName: "VHP Legal Cell — विधि प्रकोष्ठ",
-    images: [{ url: "/images/vhp-logo.jpg", width: 512, height: 512, alt: "VHP Legal Cell" }],
+    images: [{ url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/vhp-logo.jpg`, width: 512, height: 512, alt: "VHP Legal Cell" }],
   },
 };
 
@@ -101,10 +103,30 @@ export default async function LocaleLayout({
         {/* Preload Satoshi (self-hosted) */}
         <link
           rel="preload"
-          href="/fonts/Satoshi-Variable.woff2"
+          href={`${basePath}/fonts/Satoshi-Variable.woff2`}
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
+        />
+        {/* Inline @font-face so basePath is applied for GitHub Pages */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+@font-face {
+  font-family: "Satoshi";
+  src: url("${basePath}/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("${basePath}/fonts/Satoshi-VariableItalic.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}`,
+          }}
         />
       </head>
       <body className="grain-overlay">

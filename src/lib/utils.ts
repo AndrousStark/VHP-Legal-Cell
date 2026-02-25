@@ -1,6 +1,15 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+/** Base path for GitHub Pages deployment — empty string for local dev */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/** Prefix a static asset path with basePath */
+export function assetPath(path: string): string {
+  if (!BASE_PATH || path.startsWith("http")) return path;
+  return `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 /** Merge Tailwind classes with clsx */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

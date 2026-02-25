@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { OTP_LENGTH } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import Image from "next/image";
 import {
   Phone,
@@ -116,7 +116,7 @@ export function LoginForm() {
         {/* Header */}
         <div className="bg-gradient-to-br from-maroon-dark to-maroon px-6 py-8 text-center">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold/30 bg-cream shadow-lg overflow-hidden">
-            <Image src="/images/legal-logo.png" alt="Legal Cell" width={40} height={40} className="object-contain" />
+            <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" width={40} height={40} className="object-contain" />
           </div>
           <h1 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-cream">
             Convenor Login

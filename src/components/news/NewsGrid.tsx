@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { NEWS_ARTICLES, type NewsArticle } from "@/lib/mock-data";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import {
   Search,
   Calendar,
@@ -79,7 +79,7 @@ function FeaturedCard({ article }: { article: NewsArticle }) {
         <div className="relative h-52 overflow-hidden md:h-60">
           {article.image ? (
             <Image
-              src={article.image}
+              src={assetPath(article.image)}
               alt={article.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -188,7 +188,7 @@ function ArticleCard({ article }: { article: NewsArticle }) {
         <div className="relative h-40 overflow-hidden">
           {article.image ? (
             <Image
-              src={article.image}
+              src={assetPath(article.image)}
               alt={article.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

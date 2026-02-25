@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 import { ArrowRight, Users } from "lucide-react";
 import Image from "next/image";
 
@@ -15,7 +16,7 @@ export function CTASection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/temple-diyas.jpg"
+          src={assetPath("/images/temple-diyas.jpg")}
           alt=""
           fill
           className="object-cover"

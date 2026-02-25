@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Mail } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export function ContactHero() {
   return (
@@ -10,7 +11,7 @@ export function ContactHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/india-flag.jpg"
+          src={assetPath("/images/india-flag.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"

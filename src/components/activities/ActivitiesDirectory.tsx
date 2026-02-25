@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { ACTIVITIES, type ActivityData } from "@/lib/mock-data";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import {
   Search,
   Calendar,
@@ -70,7 +70,7 @@ function ActivityCard({ activity }: { activity: ActivityData }) {
         {activity.image && (
           <div className="relative h-44 overflow-hidden">
             <Image
-              src={activity.image}
+              src={assetPath(activity.image)}
               alt={activity.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

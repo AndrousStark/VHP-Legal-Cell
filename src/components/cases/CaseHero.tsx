@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Scale } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 import { CASES } from "@/lib/mock-data";
 
 export function CaseHero() {
@@ -14,7 +15,7 @@ export function CaseHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/supreme-court.jpg"
+          src={assetPath("/images/supreme-court.jpg")}
           alt=""
           fill
           className="object-cover opacity-20"

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { BookOpen } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 import { JUDGMENTS } from "@/lib/mock-data";
 
 export function JudgmentHero() {
@@ -13,7 +14,7 @@ export function JudgmentHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/golden-om.jpg"
+          src={assetPath("/images/golden-om.jpg")}
           alt=""
           fill
           className="object-cover opacity-15"

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Newspaper } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export function NewsHero() {
   return (
@@ -10,7 +11,7 @@ export function NewsHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/peacock-temple.jpg"
+          src={assetPath("/images/peacock-temple.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"

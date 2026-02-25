@@ -4,14 +4,20 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const basePath = isGitHubPages ? "/VHP-Legal-Cell" : "";
 
 const nextConfig: NextConfig = {
   // Static export for GitHub Pages
   output: "export",
 
   // GitHub Pages serves from /VHP-Legal-Cell/ subpath
-  basePath: isGitHubPages ? "/VHP-Legal-Cell" : "",
+  basePath,
   assetPrefix: isGitHubPages ? "/VHP-Legal-Cell/" : undefined,
+
+  // Expose basePath to client code
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 
   images: {
     unoptimized: true, // Required for static export (no image server)
@@ -23,8 +29,6 @@ const nextConfig: NextConfig = {
   experimental: {
     viewTransition: true,
   },
-  // Note: Custom headers don't apply in static export.
-  // Security headers should be configured at the hosting level.
 };
 
 export default withNextIntl(nextConfig);

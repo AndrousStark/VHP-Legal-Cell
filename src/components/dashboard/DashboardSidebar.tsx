@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, usePathname } from "@/i18n/routing";
 import { useAuth } from "@/lib/auth-context";
 import { DASHBOARD_NAV, ADMIN_NAV } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import {
   LayoutDashboard,
   CalendarCheck,
@@ -87,7 +87,7 @@ function SidebarContent({
               className="flex items-center justify-center"
             >
               <div className="relative h-8 w-8 overflow-hidden rounded-full border border-gold/30">
-                <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="32px" />
+                <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="32px" />
               </div>
             </motion.div>
           ) : (
@@ -99,10 +99,10 @@ function SidebarContent({
               className="flex items-center gap-2"
             >
               <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-gold/30">
-                <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="32px" />
+                <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="32px" />
               </div>
               <div className="relative h-7 w-7 shrink-0">
-                <Image src="/images/legal-logo.png" alt="Legal Cell" fill className="object-contain" sizes="28px" />
+                <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" fill className="object-contain" sizes="28px" />
               </div>
               <div>
                 <p className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { assetPath } from "@/lib/utils";
 import { TEAM_MEMBERS } from "@/lib/mock-data";
 
 /** Orbit ring for national leadership — center is the National Convenor */
@@ -16,7 +17,7 @@ export function PillarsHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/rama-navami.jpg"
+          src={assetPath("/images/rama-navami.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"
@@ -65,7 +66,7 @@ export function PillarsHero() {
               >
                 <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border-[3px] border-gold/50 bg-maroon shadow-lg shadow-saffron-bright/20 transition-transform duration-300 hover:scale-105 md:h-32 md:w-32">
                   {convenor.photo ? (
-                    <Image src={convenor.photo} alt={convenor.name} fill className="object-cover object-top" sizes="128px" />
+                    <Image src={assetPath(convenor.photo)} alt={convenor.name} fill className="object-cover object-top" sizes="128px" />
                   ) : (
                     <span className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-gold-bright">
                       {convenor.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
@@ -106,7 +107,7 @@ export function PillarsHero() {
                 <Link href={`/pillars/${member.slug}`} className="group relative block">
                   <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-gold/20 bg-maroon-dark/80 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:shadow-lg hover:scale-110 md:h-18 md:w-18">
                     {member.photo ? (
-                      <Image src={member.photo} alt={member.name} fill className="object-cover object-top" sizes="72px" />
+                      <Image src={assetPath(member.photo)} alt={member.name} fill className="object-cover object-top" sizes="72px" />
                     ) : (
                       <span className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream/70 transition-colors group-hover:text-gold-bright">
                         {member.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}

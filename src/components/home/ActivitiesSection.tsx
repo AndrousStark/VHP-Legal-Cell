@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import Image from "next/image";
 
 /* ─── Mock data — will be replaced by API ─── */
@@ -158,7 +158,7 @@ export function ActivitiesSection() {
       {/* Decorative watercolor art */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.07] hidden lg:block pointer-events-none">
         <Image
-          src="/images/india-people-art.jpg"
+          src={assetPath("/images/india-people-art.jpg")}
           alt=""
           width={600}
           height={450}

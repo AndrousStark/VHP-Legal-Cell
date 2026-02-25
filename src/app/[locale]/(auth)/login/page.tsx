@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { LoginForm } from "@/components/auth/LoginForm";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 export default async function LoginPage({
   params,
@@ -15,7 +16,7 @@ export default async function LoginPage({
       {/* Left Panel — Image + Branding (hidden on mobile) */}
       <div className="relative hidden w-1/2 lg:flex lg:flex-col lg:items-center lg:justify-center">
         <Image
-          src="/images/supreme-court.jpg"
+          src={assetPath("/images/supreme-court.jpg")}
           alt="Supreme Court of India"
           fill
           className="object-cover"
@@ -28,10 +29,10 @@ export default async function LoginPage({
         <div className="relative z-10 flex flex-col items-center gap-6 px-12 text-center">
           <div className="flex items-center gap-4">
             <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-gold/40">
-              <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="64px" />
+              <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="64px" />
             </div>
             <div className="relative h-14 w-14">
-              <Image src="/images/legal-logo.png" alt="Legal Cell" fill className="object-contain" sizes="56px" />
+              <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" fill className="object-contain" sizes="56px" />
             </div>
           </div>
           <div>

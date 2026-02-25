@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { Link } from "@/i18n/routing";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 
 /* ─── Mock team data — replace with API ─── */
 const NATIONAL_TEAM = [
@@ -35,7 +35,7 @@ function TeamCard({
         {/* Photo placeholder */}
         <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border-[3px] border-gold/30 bg-gradient-to-br from-saffron/10 to-gold/10">
           {member.photo ? (
-            <img src={member.photo} alt={member.name} className="h-full w-full object-cover" />
+            <img src={assetPath(member.photo)} alt={member.name} className="h-full w-full object-cover" />
           ) : (
             <span className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-maroon/40">
               {member.name

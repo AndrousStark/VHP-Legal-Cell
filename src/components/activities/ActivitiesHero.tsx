@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CalendarCheck } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 import { ACTIVITIES } from "@/lib/mock-data";
 
 export function ActivitiesHero() {
@@ -14,7 +15,7 @@ export function ActivitiesHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/navratri-celebration.jpg"
+          src={assetPath("/images/navratri-celebration.jpg")}
           alt=""
           fill
           className="object-cover opacity-10"

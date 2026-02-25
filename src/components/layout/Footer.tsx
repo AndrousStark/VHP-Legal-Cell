@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 import { ArrowUp, MapPin, Phone, Mail } from "lucide-react";
 
 const quickLinks = [
@@ -36,7 +37,7 @@ export function Footer() {
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/images/golden-om.jpg"
+          src={assetPath("/images/golden-om.jpg")}
           alt=""
           fill
           className="object-cover opacity-[0.03]"
@@ -51,10 +52,10 @@ export function Footer() {
             <div className="mb-4 flex items-center gap-3">
               <div className="flex items-center gap-2">
                 <div className="relative h-11 w-11 overflow-hidden rounded-full border border-gold/30">
-                  <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="44px" />
+                  <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="44px" />
                 </div>
                 <div className="relative h-10 w-10">
-                  <Image src="/images/legal-logo.png" alt="Legal Cell" fill className="object-contain" sizes="40px" />
+                  <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" fill className="object-contain" sizes="40px" />
                 </div>
               </div>
               <div>
@@ -146,7 +147,7 @@ export function Footer() {
             <span className="text-sm">Made by</span>
             <span className="relative h-10 w-10 overflow-hidden rounded">
               <Image
-                src="/images/metaminds-logo.jpg"
+                src={assetPath("/images/metaminds-logo.jpg")}
                 alt="MetaMinds"
                 fill
                 className="object-contain transition-transform duration-200 group-hover:scale-110"

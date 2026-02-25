@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import {
   Scale,
   Map,
@@ -141,10 +141,10 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <div className="flex items-center gap-1.5">
             <div className={cn("relative overflow-hidden rounded-full border border-gold/30 transition-all duration-300", scrolled ? "h-8 w-8" : "h-10 w-10")}>
-              <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="40px" />
+              <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="40px" />
             </div>
             <div className={cn("relative transition-all duration-300", scrolled ? "h-7 w-7" : "h-9 w-9")}>
-              <Image src="/images/legal-logo.png" alt="Legal Cell" fill className="object-contain" sizes="36px" />
+              <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" fill className="object-contain" sizes="36px" />
             </div>
           </div>
           <div className={cn("transition-all duration-300", scrolled ? "hidden lg:block" : "block")}>
@@ -278,10 +278,10 @@ export function Header() {
               <div className="mb-8 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="relative h-8 w-8 overflow-hidden rounded-full border border-gold/30">
-                    <Image src="/images/vhp-logo.jpg" alt="VHP" fill className="object-cover" sizes="32px" />
+                    <Image src={assetPath("/images/vhp-logo.jpg")} alt="VHP" fill className="object-cover" sizes="32px" />
                   </div>
                   <div className="relative h-7 w-7">
-                    <Image src="/images/legal-logo.png" alt="Legal Cell" fill className="object-contain" sizes="28px" />
+                    <Image src={assetPath("/images/legal-logo.png")} alt="Legal Cell" fill className="object-contain" sizes="28px" />
                   </div>
                   <span className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream">
                     VHP Legal Cell

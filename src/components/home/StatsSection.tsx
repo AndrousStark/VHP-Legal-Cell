@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { NumberTicker } from "@/components/animations/NumberTicker";
+import { assetPath } from "@/lib/utils";
 import { Users, MapPin, Building2, Scale, BookOpen, Gavel, PenLine, Calendar } from "lucide-react";
 import Image from "next/image";
 
@@ -25,7 +26,7 @@ export function StatsSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/golden-om.jpg"
+          src={assetPath("/images/golden-om.jpg")}
           alt=""
           fill
           className="object-cover opacity-15"

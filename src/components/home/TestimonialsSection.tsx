@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 import { Quote } from "lucide-react";
 
 /* ─── Mock testimonials — will be API-driven ─── */
@@ -66,7 +67,7 @@ export function TestimonialsSection() {
       {/* Decorative temple diyas image */}
       <div className="absolute -left-16 bottom-0 top-0 w-64 opacity-[0.04] hidden lg:block pointer-events-none">
         <Image
-          src="/images/temple-diyas.jpg"
+          src={assetPath("/images/temple-diyas.jpg")}
           alt=""
           fill
           className="object-cover"
