@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "title": "Vishwa Hindu Parishad — Legal Cell",
+    "description": "VHP Legal Cell (Vidhi Prakoshtha) — Protecting Dharma, Serving Justice. Defending Hindu legal rights across India."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "aboutVHP": "About VHP Legal Cell",
+    "structure": "Organisational Structure",
+    "map": "India Map",
+    "activities": "Activities",
+    "activitiesAll": "All Activities",
+    "calendar": "Event Calendar",
+    "gallery": "Photo Gallery",
+    "cases": "Case Tracker",
+    "casesAll": "All Cases",
+    "caseStats": "Case Statistics",
+    "judgments": "Judgment Library",
+    "news": "News",
+    "pillars": "Pillars of Justice",
+    "contact": "Contact",
+    "resources": "Resources",
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "search": "Search...",
+    "language": "हिन्दी"
+  },
+  "hero": {
+    "badge": "VIDHI PRAKOSHTHA",
+    "titleHi": "विधि प्रकोष्ठ",
+    "titleEn": "VHP LEGAL CELL",
+    "taglinePre": "We Protect",
+    "flipWords": ["Temple Rights", "Cow Protection", "Hindu Liberties", "Constitutional Values"],
+    "ctaPrimary": "Explore Our Work",
+    "ctaSecondary": "Join the Movement"
+  },
+  "ticker": {
+    "heading": "Breaking News"
+  },
+  "bento": {
+    "mapTitle": "India Map",
+    "mapDesc": "Explore our presence across 12 regions",
+    "mapCta": "Explore Map →",
+    "casesTitle": "Case Tracker",
+    "casesActive": "Active Cases",
+    "judgmentsTitle": "Judgment Library",
+    "judgmentsCount": "150+ PDFs",
+    "activitiesTitle": "Activities",
+    "activitiesCount": "30+ Events This Year",
+    "newsTitle": "News & Insights",
+    "newsCta": "Latest →",
+    "resourcesTitle": "Resources",
+    "resourcesDesc": "Templates, FAQs, Laws"
+  },
+  "stats": {
+    "advocates": "Advocates",
+    "regions": "Regions (Khetras)",
+    "prants": "Prants",
+    "activeCases": "Active Cases",
+    "judgments": "Judgments",
+    "formerJudges": "Former Judges",
+    "articles": "Articles Published",
+    "events": "Major Events"
+  },
+  "team": {
+    "heading": "National Team",
+    "subheading": "Leadership of VHP Legal Cell"
+  },
+  "activities": {
+    "heading": "Recent Activities",
+    "viewAll": "View All Activities →",
+    "completed": "Completed",
+    "upcoming": "Upcoming"
+  },
+  "testimonials": {
+    "heading": "Testimonials"
+  },
+  "cta": {
+    "headline": "Protect Dharma. Serve Justice.",
+    "join": "Join VHP Legal Cell",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "legalPages": "Legal Pages",
+    "contactInfo": "Contact Info",
+    "socialMedia": "Social Media",
+    "copyright": "© {year} Vishwa Hindu Parishad — Legal Cell. All rights reserved.",
+    "madeWith": "Made with ❤️ for Dharma"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "download": "Download",
+    "share": "Share",
+    "filter": "Filter",
+    "sort": "Sort",
+    "search": "Search"
+  }
+}

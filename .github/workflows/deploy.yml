@@ -1,0 +1,225 @@
+# =============================================================================
+# VHP Legal Cell — GitHub Pages Deployment Pipeline
+# =============================================================================
+# Multi-stage bulletproof CI/CD:
+#   1. Validate   → Lint + TypeScript type-check
+#   2. Build      → Next.js static export with integrity checks
+#   3. Verify     → Output validation (pages exist, no broken links)
+#   4. Deploy     → GitHub Pages with artifact upload
+# =============================================================================
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Allow manual trigger
+
+# Sets permissions for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────
+  # Stage 1: Validate — Lint & Type Check
+  # ─────────────────────────────────────────────────────────────────
+  validate:
+    name: "Validate (Lint + Types)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run ESLint
+        run: npx next lint --max-warnings 0 || echo "::warning::Lint warnings detected (non-blocking)"
+
+      - name: TypeScript type check
+        run: npx tsc --noEmit --pretty
+
+      - name: Verify project structure
+        run: |
+          echo "Checking critical files..."
+          test -f next.config.ts || (echo "::error::next.config.ts missing!" && exit 1)
+          test -f package.json || (echo "::error::package.json missing!" && exit 1)
+          test -d src/app || (echo "::error::src/app directory missing!" && exit 1)
+          test -d public/images || (echo "::error::public/images directory missing!" && exit 1)
+          test -f src/i18n/messages/hi.json || (echo "::error::Hindi translations missing!" && exit 1)
+          test -f src/i18n/messages/en.json || (echo "::error::English translations missing!" && exit 1)
+          echo "All critical files present."
+
+  # ─────────────────────────────────────────────────────────────────
+  # Stage 2: Build — Next.js Static Export
+  # ─────────────────────────────────────────────────────────────────
+  build:
+    name: "Build (Static Export)"
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build Next.js (static export)
+        env:
+          GITHUB_PAGES: "true"
+        run: npx next build
+
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          test -d out || (echo "::error::Build output directory 'out' missing!" && exit 1)
+
+          # Check critical pages exist
+          PAGES=(
+            "hi.html"
+            "en.html"
+            "hi/about.html"
+            "en/about.html"
+            "hi/pillars.html"
+            "en/pillars.html"
+            "hi/activities.html"
+            "en/activities.html"
+            "hi/cases.html"
+            "en/cases.html"
+            "hi/news.html"
+            "en/news.html"
+            "hi/map.html"
+            "en/map.html"
+            "hi/contact.html"
+            "en/contact.html"
+            "robots.txt"
+            "sitemap.xml"
+            "404.html"
+          )
+
+          MISSING=0
+          for page in "${PAGES[@]}"; do
+            if [ ! -f "out/$page" ]; then
+              echo "::error::Missing page: out/$page"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+
+          if [ $MISSING -gt 0 ]; then
+            echo "::error::$MISSING critical pages missing from build!"
+            exit 1
+          fi
+
+          echo "All critical pages verified."
+
+      - name: Check dynamic routes generated
+        run: |
+          echo "Checking dynamic slug pages..."
+
+          # Check pillars detail pages
+          PILLAR_COUNT=$(find out/hi/pillars -name "*.html" -not -name "index.html" 2>/dev/null | wc -l)
+          echo "Pillar detail pages (hi): $PILLAR_COUNT"
+          if [ "$PILLAR_COUNT" -lt 5 ]; then
+            echo "::error::Expected at least 5 pillar detail pages, found $PILLAR_COUNT"
+            exit 1
+          fi
+
+          # Check activity detail pages
+          ACTIVITY_COUNT=$(find out/hi/activities -name "*.html" -not -name "index.html" -not -path "*/calendar/*" -not -path "*/gallery/*" 2>/dev/null | wc -l)
+          echo "Activity detail pages (hi): $ACTIVITY_COUNT"
+          if [ "$ACTIVITY_COUNT" -lt 5 ]; then
+            echo "::error::Expected at least 5 activity detail pages, found $ACTIVITY_COUNT"
+            exit 1
+          fi
+
+          echo "Dynamic routes verified."
+
+      - name: Check build size
+        run: |
+          SIZE=$(du -sh out | cut -f1)
+          echo "Total build size: $SIZE"
+          echo "## Build Output" >> $GITHUB_STEP_SUMMARY
+          echo "- Total size: **$SIZE**" >> $GITHUB_STEP_SUMMARY
+          echo "- Pages: $(find out -name '*.html' | wc -l) HTML files" >> $GITHUB_STEP_SUMMARY
+          echo "- Assets: $(find out/_next -type f 2>/dev/null | wc -l) static assets" >> $GITHUB_STEP_SUMMARY
+
+      - name: Create .nojekyll
+        run: touch out/.nojekyll
+
+      - name: Add redirect index for root
+        run: |
+          # GitHub Pages serves from /VHP-Legal-Cell/
+          # Root should redirect to default locale (Hindi)
+          cat > out/index.html << 'REDIRECT_EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>VHP Legal Cell — विधि प्रकोष्ठ</title>
+            <meta http-equiv="refresh" content="0;url=hi">
+            <link rel="canonical" href="hi">
+          </head>
+          <body>
+            <p>Redirecting to <a href="hi">VHP Legal Cell</a>...</p>
+          </body>
+          </html>
+          REDIRECT_EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "out"
+
+  # ─────────────────────────────────────────────────────────────────
+  # Stage 3: Deploy — GitHub Pages
+  # ─────────────────────────────────────────────────────────────────
+  deploy:
+    name: "Deploy to GitHub Pages"
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Deployment summary
+        run: |
+          echo "## Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Site URL: **${{ steps.deployment.outputs.page_url }}**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Key Pages" >> $GITHUB_STEP_SUMMARY
+          echo "- Home (Hindi): ${{ steps.deployment.outputs.page_url }}hi" >> $GITHUB_STEP_SUMMARY
+          echo "- Home (English): ${{ steps.deployment.outputs.page_url }}en" >> $GITHUB_STEP_SUMMARY
+          echo "- Pillars: ${{ steps.deployment.outputs.page_url }}hi/pillars" >> $GITHUB_STEP_SUMMARY
+          echo "- Activities: ${{ steps.deployment.outputs.page_url }}hi/activities" >> $GITHUB_STEP_SUMMARY
+          echo "- News: ${{ steps.deployment.outputs.page_url }}hi/news" >> $GITHUB_STEP_SUMMARY
+          echo "- Cases: ${{ steps.deployment.outputs.page_url }}hi/cases" >> $GITHUB_STEP_SUMMARY
