@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TEAM_MEMBERS, type TeamMember } from "@/lib/mock-data";
-import { KHETRAS } from "@/lib/map-config";
+import { CHETRAS } from "@/lib/map-config";
 import { cn, assetPath } from "@/lib/utils";
 import Image from "next/image";
 import { Search, LayoutGrid, List, Scale, MapPin, ArrowRight } from "lucide-react";
 
 type ViewMode = "grid" | "list";
-type LevelFilter = "all" | "national" | "khetra" | "prant" | "court";
+type LevelFilter = "all" | "national" | "chetra" | "prant" | "court";
 
 function MemberCard({ member }: { member: TeamMember }) {
   return (
@@ -45,7 +45,7 @@ function MemberCard({ member }: { member: TeamMember }) {
             className={cn(
               "absolute top-3 right-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white",
               member.level === "national" && "bg-saffron-bright",
-              member.level === "khetra" && "bg-maroon",
+              member.level === "chetra" && "bg-maroon",
               member.level === "prant" && "bg-gold",
               member.level === "court" && "bg-info"
             )}
@@ -140,7 +140,7 @@ function MemberListRow({ member }: { member: TeamMember }) {
 export function TeamDirectory() {
   const [searchQuery, setSearchQuery] = useState("");
   const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
-  const [khetraFilter, setKhetraFilter] = useState<string>("all");
+  const [chetraFilter, setChetraFilter] = useState<string>("all");
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
 
   const filteredMembers = useMemo(() => {
@@ -152,17 +152,17 @@ export function TeamDirectory() {
         member.designation.toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesLevel = levelFilter === "all" || member.level === levelFilter;
-      const matchesKhetra =
-        khetraFilter === "all" || member.khetraId === khetraFilter || (!member.khetraId && khetraFilter === "all");
+      const matchesChetra =
+        chetraFilter === "all" || member.chetraId === chetraFilter || (!member.chetraId && chetraFilter === "all");
 
-      return matchesSearch && matchesLevel && matchesKhetra;
+      return matchesSearch && matchesLevel && matchesChetra;
     });
-  }, [searchQuery, levelFilter, khetraFilter]);
+  }, [searchQuery, levelFilter, chetraFilter]);
 
   const levels: { value: LevelFilter; label: string }[] = [
     { value: "all", label: "All Levels" },
     { value: "national", label: "National" },
-    { value: "khetra", label: "Khetra" },
+    { value: "chetra", label: "Chetra" },
     { value: "prant", label: "Prant" },
     { value: "court", label: "Court" },
   ];
@@ -232,14 +232,14 @@ export function TeamDirectory() {
 
             <div className="mx-2 h-6 w-px bg-gold/15" />
 
-            {/* Khetra filter dropdown */}
+            {/* Chetra filter dropdown */}
             <select
-              value={khetraFilter}
-              onChange={(e) => setKhetraFilter(e.target.value)}
+              value={chetraFilter}
+              onChange={(e) => setChetraFilter(e.target.value)}
               className="rounded-full border border-gold/15 bg-cream-light px-3 py-1.5 font-[family-name:var(--font-satoshi)] text-xs text-charcoal focus:border-saffron/30 focus:outline-none"
             >
               <option value="all">All Regions</option>
-              {KHETRAS.map((k) => (
+              {CHETRAS.map((k) => (
                 <option key={k.id} value={k.id}>
                   {k.nameEn}
                 </option>

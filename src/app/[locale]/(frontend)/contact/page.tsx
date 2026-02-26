@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Us | VHP Legal Cell",
   description:
-    "Get in touch with VHP Legal Cell (Vidhi Prakoshtha). Reach our national office, khetra coordinators, or submit a legal query. We are here to help protect Hindu dharmic rights.",
+    "Get in touch with VHP Legal Cell (Vidhi Prakoshtha). Reach our national office, chetra coordinators, or submit a legal query. We are here to help protect Hindu dharmic rights.",
   openGraph: {
     title: "Contact Us | VHP Legal Cell",
     description:

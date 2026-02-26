@@ -4,9 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import {
-  KHETRAS,
+  CHETRAS,
   MOCK_REGION_STATS,
-  type KhetraConfig,
+  type ChetraConfig,
 } from "@/lib/map-config";
 import { TEAM_MEMBERS, CASES } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
@@ -26,8 +26,8 @@ import {
 type SidebarTab = "overview" | "team" | "cases" | "stats";
 
 interface MapSidebarProps {
-  selectedKhetra: string | null;
-  onKhetraSelect: (khetraId: string | null) => void;
+  selectedChetra: string | null;
+  onChetraSelect: (chetraId: string | null) => void;
   className?: string;
 }
 
@@ -59,26 +59,26 @@ function TabButton({
 }
 
 export function MapSidebar({
-  selectedKhetra,
-  onKhetraSelect,
+  selectedChetra,
+  onChetraSelect,
   className,
 }: MapSidebarProps) {
   const [activeTab, setActiveTab] = useState<SidebarTab>("overview");
 
-  const khetra = selectedKhetra
-    ? KHETRAS.find((k) => k.id === selectedKhetra)
+  const chetra = selectedChetra
+    ? CHETRAS.find((k) => k.id === selectedChetra)
     : null;
 
-  const stats = selectedKhetra
-    ? MOCK_REGION_STATS[selectedKhetra]
+  const stats = selectedChetra
+    ? MOCK_REGION_STATS[selectedChetra]
     : null;
 
-  const khetraMembers = selectedKhetra
-    ? TEAM_MEMBERS.filter((m) => m.khetraId === selectedKhetra)
+  const chetraMembers = selectedChetra
+    ? TEAM_MEMBERS.filter((m) => m.chetraId === selectedChetra)
     : [];
 
-  const khetraCases = selectedKhetra
-    ? CASES.filter((c) => c.khetraId === selectedKhetra)
+  const chetraCases = selectedChetra
+    ? CASES.filter((c) => c.chetraId === selectedChetra)
     : [];
 
   const tabs: { value: SidebarTab; label: string; icon: React.ElementType }[] =
@@ -99,9 +99,9 @@ export function MapSidebar({
       {/* Header */}
       <div className="border-b border-gold/10 p-4">
         <AnimatePresence mode="wait">
-          {khetra ? (
+          {chetra ? (
             <motion.div
-              key={khetra.id}
+              key={chetra.id}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -111,22 +111,22 @@ export function MapSidebar({
                 <div className="flex items-center gap-2">
                   <span
                     className="h-3 w-3 rounded-full"
-                    style={{ backgroundColor: khetra.color }}
+                    style={{ backgroundColor: chetra.color }}
                   />
                   <h3 className="font-[family-name:var(--font-playfair)] text-lg font-bold text-maroon-dark">
-                    {khetra.nameEn}
+                    {chetra.nameEn}
                   </h3>
                 </div>
                 <p className="mt-0.5 font-[family-name:var(--font-noto-serif)] text-sm text-charcoal-light">
-                  {khetra.nameHi}
+                  {chetra.nameHi}
                 </p>
                 <p className="mt-1 font-[family-name:var(--font-satoshi)] text-xs text-charcoal-light/70">
-                  {khetra.states.join(", ")}
+                  {chetra.states.join(", ")}
                 </p>
               </div>
               <button
-                onClick={() => onKhetraSelect(null)}
-                aria-label="Clear khetra selection"
+                onClick={() => onChetraSelect(null)}
+                aria-label="Clear chetra selection"
                 className="rounded-lg p-1.5 text-charcoal-light/40 transition-colors hover:bg-gold/10 hover:text-charcoal"
               >
                 <X className="h-4 w-4" />
@@ -143,7 +143,7 @@ export function MapSidebar({
                 All India Overview
               </h3>
               <p className="mt-0.5 font-[family-name:var(--font-satoshi)] text-xs text-charcoal-light">
-                Click a state on the map to explore its Khetra
+                Click a state on the map to explore its Chetra
               </p>
             </motion.div>
           )}
@@ -174,7 +174,7 @@ export function MapSidebar({
               exit={{ opacity: 0 }}
               className="space-y-3"
             >
-              {selectedKhetra && stats ? (
+              {selectedChetra && stats ? (
                 <>
                   <div className="grid grid-cols-2 gap-3">
                     <StatMini
@@ -201,7 +201,7 @@ export function MapSidebar({
                   </div>
                 </>
               ) : (
-                <KhetraList onSelect={onKhetraSelect} />
+                <ChetraList onSelect={onChetraSelect} />
               )}
             </motion.div>
           )}
@@ -214,8 +214,8 @@ export function MapSidebar({
               exit={{ opacity: 0 }}
               className="space-y-2"
             >
-              {khetraMembers.length > 0 ? (
-                khetraMembers.map((member) => (
+              {chetraMembers.length > 0 ? (
+                chetraMembers.map((member) => (
                   <Link
                     key={member.id}
                     href={`/pillars/${member.slug}`}
@@ -255,8 +255,8 @@ export function MapSidebar({
               exit={{ opacity: 0 }}
               className="space-y-2"
             >
-              {khetraCases.length > 0 ? (
-                khetraCases.map((c) => (
+              {chetraCases.length > 0 ? (
+                chetraCases.map((c) => (
                   <Link
                     key={c.id}
                     href={`/cases/${c.slug}`}
@@ -302,7 +302,7 @@ export function MapSidebar({
               exit={{ opacity: 0 }}
               className="space-y-4"
             >
-              {selectedKhetra && stats ? (
+              {selectedChetra && stats ? (
                 <>
                   <div className="rounded-xl border border-gold/10 bg-cream p-4">
                     <p className="font-[family-name:var(--font-satoshi)] text-xs font-semibold uppercase tracking-wider text-charcoal-light/60">
@@ -345,7 +345,7 @@ export function MapSidebar({
                   </div>
                 </>
               ) : (
-                <EmptyState text="Select a Khetra to view detailed stats" />
+                <EmptyState text="Select a Chetra to view detailed stats" />
               )}
             </motion.div>
           )}
@@ -412,17 +412,17 @@ function StatBar({
   );
 }
 
-function KhetraList({
+function ChetraList({
   onSelect,
 }: {
-  onSelect: (khetraId: string) => void;
+  onSelect: (chetraId: string) => void;
 }) {
   return (
     <div className="space-y-1.5">
       <p className="mb-2 font-[family-name:var(--font-satoshi)] text-xs font-semibold uppercase tracking-wider text-charcoal-light/60">
-        12 Khetras
+        12 Chetras
       </p>
-      {KHETRAS.map((k) => {
+      {CHETRAS.map((k) => {
         const s = MOCK_REGION_STATS[k.id];
         return (
           <button

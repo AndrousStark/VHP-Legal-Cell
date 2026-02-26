@@ -6,7 +6,7 @@ import { TeamDirectory } from "@/components/pillars/TeamDirectory";
 export const metadata: Metadata = {
   title: "Pillars of Justice | VHP Legal Cell",
   description:
-    "Meet the advocates and legal leaders of VHP Legal Cell — national convenors, khetra coordinators, and dedicated lawyers protecting Hindu dharmic rights across India.",
+    "Meet the advocates and legal leaders of VHP Legal Cell — national convenors, chetra coordinators, and dedicated lawyers protecting Hindu dharmic rights across India.",
   openGraph: {
     title: "Pillars of Justice | VHP Legal Cell",
     description:

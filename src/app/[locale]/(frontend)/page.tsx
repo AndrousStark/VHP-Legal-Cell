@@ -13,7 +13,7 @@ import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "VHP Legal Cell — विधि प्रकोष्ठ | Protecting Dharma, Serving Justice",
   description:
-    "Official website of Vishwa Hindu Parishad Legal Cell (Vidhi Prakoshtha). Track 1200+ cases, 150+ judgments, legal resources across 12 Khetras of India.",
+    "Official website of Vishwa Hindu Parishad Legal Cell (Vidhi Prakoshtha). Track 1200+ cases, 150+ judgments, legal resources across 12 Chetras of India.",
   openGraph: {
     title: "VHP Legal Cell — Protecting Dharma, Serving Justice",
     description:

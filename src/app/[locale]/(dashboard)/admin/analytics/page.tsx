@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
-import { KHETRAS, MOCK_REGION_STATS } from "@/lib/map-config";
+import { CHETRAS, MOCK_REGION_STATS } from "@/lib/map-config";
 import { cn } from "@/lib/utils";
 import {
   Scale,
@@ -20,7 +20,7 @@ import {
 /* ─── Mock Analytics Data ─── */
 
 interface RegionRanking {
-  khetraId: string;
+  chetraId: string;
   name: string;
   score: number;
   cases: number;
@@ -37,7 +37,7 @@ function calculateScore(stats: { cases: number; members: number; activities: num
   );
 }
 
-const REGION_RANKINGS: RegionRanking[] = KHETRAS.map((k) => {
+const REGION_RANKINGS: RegionRanking[] = CHETRAS.map((k) => {
   const stats = MOCK_REGION_STATS[k.id] ?? { cases: 0, members: 0, activities: 0, resolutionRate: 0 };
   const score = calculateScore(stats);
   const trend: "improving" | "declining" | "stable" = score > 50 ? "improving" : score > 30 ? "stable" : "declining";
@@ -45,7 +45,7 @@ const REGION_RANKINGS: RegionRanking[] = KHETRAS.map((k) => {
   const cagr = Math.round(((score * 7 + 13) % 30 - 5) * 10) / 10;
 
   return {
-    khetraId: k.id,
+    chetraId: k.id,
     name: k.nameEn,
     score,
     ...stats,
@@ -152,7 +152,7 @@ export default function AnalyticsPage() {
 
                 return (
                   <div
-                    key={region.khetraId}
+                    key={region.chetraId}
                     className="group flex items-center gap-3 rounded-lg border border-gold/5 p-3 transition-all hover:border-gold/15 hover:bg-cream/[0.02]"
                   >
                     {/* Rank */}
@@ -299,7 +299,7 @@ export default function AnalyticsPage() {
                   <span className="font-semibold text-saffron-bright">
                     {NATIONAL_STATS.totalCases} cases
                   </span>{" "}
-                  across 12 Khetras with{" "}
+                  across 12 Chetras with{" "}
                   <span className="font-semibold text-gold-bright">
                     {NATIONAL_STATS.totalMembers}+ members
                   </span>
@@ -328,7 +328,7 @@ export default function AnalyticsPage() {
                   Recommendation
                 </p>
                 <p className="mt-1 font-[family-name:var(--font-satoshi)] text-xs text-cream/50">
-                  Prioritize member expansion in Purvottar and Purva Khetras. Schedule Shiksha
+                  Prioritize member expansion in Purvottar and Purva Chetras. Schedule Shiksha
                   Vargs in under-performing regions to boost capability.
                 </p>
               </div>

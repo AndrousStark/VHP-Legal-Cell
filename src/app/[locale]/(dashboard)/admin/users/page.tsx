@@ -28,16 +28,16 @@ interface MockUser {
 
 const MOCK_USERS: MockUser[] = [
   { id: "1", name: "Dr. Abhishek Atrey", phone: "9876543210", role: "NATIONAL_ADMIN", region: "All India", status: "active", lastActive: "2 hours ago" },
-  { id: "2", name: "Adv. Vikram Singh", phone: "9876543211", role: "KHETRA_CONVENOR", region: "Braj Khetra", status: "active", lastActive: "1 day ago" },
+  { id: "2", name: "Adv. Vikram Singh", phone: "9876543211", role: "CHETRA_CONVENOR", region: "Braj Chetra", status: "active", lastActive: "1 day ago" },
   { id: "3", name: "Adv. Kavita Mishra", phone: "9876543212", role: "PRANT_CONVENOR", region: "Rajasthan", status: "active", lastActive: "3 days ago" },
-  { id: "4", name: "Adv. Suresh Patel", phone: "9876543213", role: "KHETRA_CONVENOR", region: "Paschim", status: "active", lastActive: "5 hours ago" },
-  { id: "5", name: "Adv. Mohan Das", phone: "9876543214", role: "KHETRA_CONVENOR", region: "Dakshin", status: "inactive", lastActive: "2 weeks ago" },
+  { id: "4", name: "Adv. Suresh Patel", phone: "9876543213", role: "CHETRA_CONVENOR", region: "Paschim", status: "active", lastActive: "5 hours ago" },
+  { id: "5", name: "Adv. Mohan Das", phone: "9876543214", role: "CHETRA_CONVENOR", region: "Dakshin", status: "inactive", lastActive: "2 weeks ago" },
   { id: "6", name: "Adv. Priya Sharma", phone: "9876543215", role: "COURT_CONVENOR", region: "Delhi HC", status: "active", lastActive: "6 hours ago" },
 ];
 
 const ROLE_ICONS: Record<string, React.ElementType> = {
   NATIONAL_ADMIN: ShieldAlert,
-  KHETRA_CONVENOR: ShieldCheck,
+  CHETRA_CONVENOR: ShieldCheck,
   PRANT_CONVENOR: Shield,
   COURT_CONVENOR: Shield,
 };
@@ -90,7 +90,7 @@ export default function UsersPage() {
             >
               <option value="all">All Roles</option>
               <option value="NATIONAL_ADMIN">National Admin</option>
-              <option value="KHETRA_CONVENOR">Khetra Convenor</option>
+              <option value="CHETRA_CONVENOR">Chetra Convenor</option>
               <option value="PRANT_CONVENOR">Prant Convenor</option>
               <option value="COURT_CONVENOR">Court Convenor</option>
             </select>

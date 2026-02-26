@@ -57,7 +57,7 @@ export function OrgStructurePreview() {
 
             {/* Outer orbit — Regional presence */}
             <OrbitingCircles radius={175} duration={35} delay={0} reverse>
-              <OrbitIcon icon={MapPin} label="12 Khetras" />
+              <OrbitIcon icon={MapPin} label="12 Chetras" />
             </OrbitingCircles>
             <OrbitingCircles radius={175} duration={35} delay={8.75} reverse>
               <OrbitIcon icon={Building2} label="35+ Prants" />

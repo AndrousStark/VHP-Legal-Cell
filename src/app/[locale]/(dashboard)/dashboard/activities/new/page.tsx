@@ -24,7 +24,7 @@ import {
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { useAuth } from "@/lib/auth-context";
 import { ACTIVITY_TYPES } from "@/lib/constants";
-import { KHETRAS } from "@/lib/map-config";
+import { CHETRAS } from "@/lib/map-config";
 import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/routing";
 
@@ -97,7 +97,7 @@ interface FormData {
   date: string;
   endDate: string;
   location: string;
-  khetra: string;
+  chetra: string;
   description: string;
   expectedAttendees: string;
   chiefGuest: string;
@@ -113,7 +113,7 @@ const INITIAL_FORM_DATA: FormData = {
   date: "",
   endDate: "",
   location: "",
-  khetra: "",
+  chetra: "",
   description: "",
   expectedAttendees: "",
   chiefGuest: "",
@@ -390,21 +390,21 @@ function StepDetails({
 
       <div className="space-y-1.5">
         <label className="block font-[family-name:var(--font-satoshi)] text-xs font-medium text-cream/60">
-          Khetra
+          Chetra
           <span className="ml-1.5 font-[family-name:var(--font-noto-serif)] text-cream/30">
             (क्षेत्र)
           </span>
           <span className="ml-0.5 text-saffron">*</span>
         </label>
         <select
-          value={formData.khetra}
-          onChange={(e) => onUpdate("khetra", e.target.value)}
+          value={formData.chetra}
+          onChange={(e) => onUpdate("chetra", e.target.value)}
           className="w-full rounded-lg border border-gold/10 bg-[#1A0E0A] px-3 py-2.5 font-[family-name:var(--font-satoshi)] text-sm text-cream focus:border-saffron/30 focus:outline-none focus:ring-1 focus:ring-saffron/20"
         >
           <option value="" className="text-cream/30">
-            Select Khetra
+            Select Chetra
           </option>
-          {KHETRAS.map((k) => (
+          {CHETRAS.map((k) => (
             <option key={k.id} value={k.id}>
               {k.nameEn} — {k.nameHi}
             </option>
@@ -561,7 +561,7 @@ function StepPreview({
   onEditStep: (step: number) => void;
 }) {
   const typeInfo = ACTIVITY_TYPES.find((t) => t.value === formData.activityType);
-  const khetraInfo = KHETRAS.find((k) => k.id === formData.khetra);
+  const chetraInfo = CHETRAS.find((k) => k.id === formData.chetra);
 
   function SectionHeader({
     title,
@@ -650,10 +650,10 @@ function StepPreview({
           )}
           <InfoRow label="Location" value={formData.location} />
           <InfoRow
-            label="Khetra"
+            label="Chetra"
             value={
-              khetraInfo
-                ? `${khetraInfo.nameEn} (${khetraInfo.nameHi})`
+              chetraInfo
+                ? `${chetraInfo.nameEn} (${chetraInfo.nameHi})`
                 : "—"
             }
           />
@@ -842,7 +842,7 @@ export default function NewActivityPage() {
         return (
           formData.titleEn.trim() !== "" &&
           formData.date !== "" &&
-          formData.khetra !== ""
+          formData.chetra !== ""
         );
       case 3:
         return true;

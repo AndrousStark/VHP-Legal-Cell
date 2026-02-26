@@ -16,7 +16,7 @@ interface StatCard {
 const STAT_CARDS: StatCard[] = [
   { icon: Scale, value: 342, suffix: "", label: "Total Cases" },
   { icon: Users, value: 500, suffix: "+", label: "Total Members" },
-  { icon: MapPin, value: 12, suffix: "", label: "Active Khetras" },
+  { icon: MapPin, value: 12, suffix: "", label: "Active Chetras" },
   { icon: CalendarCheck, value: 30, suffix: "+", label: "Total Events" },
 ];
 

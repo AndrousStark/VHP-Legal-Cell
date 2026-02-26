@@ -9,7 +9,7 @@ export const ROLES = {
   PUBLIC: 0,
   COURT_CONVENOR: 1,
   PRANT_CONVENOR: 2,
-  KHETRA_CONVENOR: 3,
+  CHETRA_CONVENOR: 3,
   NATIONAL_ADMIN: 4,
 } as const;
 
@@ -20,7 +20,7 @@ export const ROLE_LABELS: Record<RoleName, { en: string; hi: string }> = {
   PUBLIC: { en: "Public", hi: "सार्वजनिक" },
   COURT_CONVENOR: { en: "Court Convenor", hi: "न्यायालय संयोजक" },
   PRANT_CONVENOR: { en: "Prant Convenor", hi: "प्रांत संयोजक" },
-  KHETRA_CONVENOR: { en: "Khetra Convenor", hi: "क्षेत्र संयोजक" },
+  CHETRA_CONVENOR: { en: "Chetra Convenor", hi: "क्षेत्र संयोजक" },
   NATIONAL_ADMIN: { en: "National Admin", hi: "राष्ट्रीय प्रशासक" },
 };
 

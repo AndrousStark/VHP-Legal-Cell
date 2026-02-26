@@ -377,10 +377,10 @@ export default function ActivityDetailClient({ slug }: { slug: string }) {
                         <Clock className="mt-0.5 h-4 w-4 shrink-0 text-saffron/60" />
                         <div>
                           <p className="font-[family-name:var(--font-satoshi)] text-sm capitalize text-maroon">
-                            {activity.khetraId.replace(/-/g, " ")}
+                            {activity.chetraId.replace(/-/g, " ")}
                           </p>
                           <p className="font-[family-name:var(--font-satoshi)] text-xs text-charcoal/40">
-                            Khetra
+                            Chetra
                           </p>
                         </div>
                       </div>

@@ -33,7 +33,7 @@ const stagger = {
 
 const LEVEL_COLORS: Record<string, string> = {
   national: "bg-saffron/15 text-saffron border-saffron/20",
-  khetra: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  chetra: "bg-blue-500/10 text-blue-400 border-blue-500/20",
   prant: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   court: "bg-purple-500/10 text-purple-400 border-purple-500/20",
 };
@@ -196,17 +196,17 @@ export default function PillarDetailClient({ slug }: { slug: string }) {
                   </div>
                 </div>
 
-                {member.khetraId && (
+                {member.chetraId && (
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10">
                       <MapPin className="h-4 w-4 text-blue-500" />
                     </div>
                     <div>
                       <p className="font-[family-name:var(--font-satoshi)] text-sm font-medium text-maroon capitalize">
-                        {member.khetraId.replace(/-/g, " ")}
+                        {member.chetraId.replace(/-/g, " ")}
                       </p>
                       <p className="font-[family-name:var(--font-satoshi)] text-[11px] text-charcoal/40">
-                        Khetra
+                        Chetra
                       </p>
                     </div>
                   </div>

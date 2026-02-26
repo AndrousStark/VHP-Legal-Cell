@@ -95,7 +95,7 @@ export function DashboardOverview() {
               </h2>
               <p className="mt-1 font-[family-name:var(--font-satoshi)] text-xs text-saffron/70">
                 {user ? ROLE_LABELS[user.role as RoleName]?.en : ""}{" "}
-                {user?.khetraId ? `— ${user.khetraId.replace("-", " ")}` : ""}
+                {user?.chetraId ? `— ${user.chetraId.replace("-", " ")}` : ""}
               </p>
             </div>
             <div className="hidden rounded-xl border border-gold/10 bg-cream/5 px-4 py-2 sm:block">

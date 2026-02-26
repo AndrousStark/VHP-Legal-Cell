@@ -8,7 +8,8 @@ interface MapTooltipProps {
   x: number;
   y: number;
   stateName: string;
-  khetraName: string;
+  chetraName: string;
+  districtName?: string;
   cases?: number;
   members?: number;
   className?: string;
@@ -19,7 +20,8 @@ export function MapTooltip({
   x,
   y,
   stateName,
-  khetraName,
+  chetraName,
+  districtName,
   cases,
   members,
   className,
@@ -41,10 +43,22 @@ export function MapTooltip({
           exit={{ opacity: 0, scale: 0.85, y: 6 }}
           transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream">
-            {stateName}
-          </p>
-          <p className="mt-0.5 text-xs text-gold-bright">{khetraName}</p>
+          {districtName ? (
+            <>
+              <p className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream">
+                {districtName}
+              </p>
+              <p className="mt-0.5 text-xs text-cream/60">{stateName}</p>
+              <p className="mt-0.5 text-xs text-gold-bright">{chetraName}</p>
+            </>
+          ) : (
+            <>
+              <p className="font-[family-name:var(--font-playfair)] text-sm font-bold text-cream">
+                {stateName}
+              </p>
+              <p className="mt-0.5 text-xs text-gold-bright">{chetraName}</p>
+            </>
+          )}
 
           {(cases !== undefined || members !== undefined) && (
             <div className="mt-2 flex gap-4 border-t border-gold/20 pt-2">

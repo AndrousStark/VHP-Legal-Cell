@@ -8,10 +8,10 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { MapPin } from "lucide-react";
 
 export function MapPageClient() {
-  const [selectedKhetra, setSelectedKhetra] = useState<string | null>(null);
+  const [selectedChetra, setSelectedChetra] = useState<string | null>(null);
 
-  const handleStateClick = (_stateName: string, khetraId: string) => {
-    setSelectedKhetra((prev) => (prev === khetraId ? null : khetraId));
+  const handleStateClick = (_stateName: string, chetraId: string) => {
+    setSelectedChetra((prev) => (prev === chetraId ? null : chetraId));
   };
 
   return (
@@ -37,7 +37,7 @@ export function MapPageClient() {
               Interactive India Map
             </h1>
             <p className="mt-2 font-[family-name:var(--font-satoshi)] text-base text-cream/50">
-              Explore VHP Legal Cell&apos;s presence across 12 Khetras and 35+ Prants
+              Explore VHP Legal Cell&apos;s presence across 12 Chetras and 35+ Prants
             </p>
           </motion.div>
         </div>
@@ -50,14 +50,14 @@ export function MapPageClient() {
             <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
               {/* Map */}
               <IndiaMap
-                selectedKhetra={selectedKhetra}
+                selectedChetra={selectedChetra}
                 onStateClick={handleStateClick}
               />
 
               {/* Sidebar */}
               <MapSidebar
-                selectedKhetra={selectedKhetra}
-                onKhetraSelect={setSelectedKhetra}
+                selectedChetra={selectedChetra}
+                onChetraSelect={setSelectedChetra}
                 className="h-fit lg:sticky lg:top-24"
               />
             </div>

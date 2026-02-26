@@ -23,7 +23,7 @@ const PILLARS = [
     title: "Pan-India Presence",
     titleHi: "अखिल भारतीय उपस्थिति",
     description:
-      "Organized across 12 Khetras, 35+ Prants, with legal teams at Supreme Court, High Courts, and District Courts nationwide.",
+      "Organized across 12 Chetras, 35+ Prants, with legal teams at Supreme Court, High Courts, and District Courts nationwide.",
   },
   {
     icon: BookOpen,

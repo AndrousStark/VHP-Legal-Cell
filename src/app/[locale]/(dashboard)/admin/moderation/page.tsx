@@ -28,7 +28,7 @@ interface ModerationItem {
 const MOCK_QUEUE: ModerationItem[] = [
   { id: "1", title: "Legal Clinic Report — Bhopal", type: "activity", submittedBy: "Adv. Ramesh Gupta", region: "Madhya Bharat", date: "2 hours ago", status: "pending" },
   { id: "2", title: "Cow Protection Judgment PDF", type: "judgment", submittedBy: "Adv. Kavita Mishra", region: "Rajasthan", date: "5 hours ago", status: "pending" },
-  { id: "3", title: "Seminar Photos — Delhi", type: "photo", submittedBy: "Delhi Khetra Office", region: "Delhi", date: "1 day ago", status: "pending" },
+  { id: "3", title: "Seminar Photos — Delhi", type: "photo", submittedBy: "Delhi Chetra Office", region: "Delhi", date: "1 day ago", status: "pending" },
   { id: "4", title: "Workshop Report — Bengaluru", type: "activity", submittedBy: "Adv. Mohan Das", region: "Dakshin", date: "1 day ago", status: "approved" },
   { id: "5", title: "RTI Response Document", type: "judgment", submittedBy: "Adv. Suresh Patel", region: "Paschim", date: "2 days ago", status: "rejected" },
 ];

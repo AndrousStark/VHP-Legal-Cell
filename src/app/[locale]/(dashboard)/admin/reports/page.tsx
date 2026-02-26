@@ -129,12 +129,12 @@ interface RegionRow {
 }
 
 const INITIAL_REGIONS: RegionRow[] = [
-  { rank: 1, region: "Uttar Khetra", regionHi: "उत्तर क्षेत्र", cases: 14, activities: 8, members: 42, resolutionRate: 78, score: 92 },
-  { rank: 2, region: "Paschim Khetra", regionHi: "पश्चिम क्षेत्र", cases: 11, activities: 6, members: 35, resolutionRate: 72, score: 84 },
-  { rank: 3, region: "Dakshina Khetra", regionHi: "दक्षिण क्षेत्र", cases: 9, activities: 5, members: 28, resolutionRate: 65, score: 71 },
-  { rank: 4, region: "Purva Khetra", regionHi: "पूर्व क्षेत्र", cases: 7, activities: 3, members: 22, resolutionRate: 60, score: 58 },
-  { rank: 5, region: "Madhya Khetra", regionHi: "मध्य क्षेत्र", cases: 4, activities: 2, members: 15, resolutionRate: 55, score: 43 },
-  { rank: 6, region: "Purvottar Khetra", regionHi: "पूर्वोत्तर क्षेत्र", cases: 2, activities: 1, members: 8, resolutionRate: 50, score: 29 },
+  { rank: 1, region: "Uttar Chetra", regionHi: "उत्तर क्षेत्र", cases: 14, activities: 8, members: 42, resolutionRate: 78, score: 92 },
+  { rank: 2, region: "Paschim Chetra", regionHi: "पश्चिम क्षेत्र", cases: 11, activities: 6, members: 35, resolutionRate: 72, score: 84 },
+  { rank: 3, region: "Dakshina Chetra", regionHi: "दक्षिण क्षेत्र", cases: 9, activities: 5, members: 28, resolutionRate: 65, score: 71 },
+  { rank: 4, region: "Purva Chetra", regionHi: "पूर्व क्षेत्र", cases: 7, activities: 3, members: 22, resolutionRate: 60, score: 58 },
+  { rank: 5, region: "Madhya Chetra", regionHi: "मध्य क्षेत्र", cases: 4, activities: 2, members: 15, resolutionRate: 55, score: 43 },
+  { rank: 6, region: "Purvottar Chetra", regionHi: "पूर्वोत्तर क्षेत्र", cases: 2, activities: 1, members: 8, resolutionRate: 50, score: 29 },
 ];
 
 type SortKey = "rank" | "region" | "cases" | "activities" | "members" | "resolutionRate" | "score";

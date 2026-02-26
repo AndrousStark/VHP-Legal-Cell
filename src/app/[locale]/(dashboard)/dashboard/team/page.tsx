@@ -33,14 +33,14 @@ const fadeUp = {
 
 const LEVEL_COLORS: Record<string, string> = {
   national: "bg-saffron/10 text-saffron border-saffron/20",
-  khetra: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  chetra: "bg-blue-500/10 text-blue-400 border-blue-500/20",
   prant: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   court: "bg-purple-500/10 text-purple-400 border-purple-500/20",
 };
 
 const LEVEL_LABELS: Record<string, string> = {
   national: "National",
-  khetra: "Khetra",
+  chetra: "Chetra",
   prant: "Prant",
   court: "Court",
 };
@@ -90,7 +90,7 @@ export default function TeamPage() {
             >
               <option value="all">All Levels</option>
               <option value="national">National</option>
-              <option value="khetra">Khetra</option>
+              <option value="chetra">Chetra</option>
               <option value="prant">Prant</option>
               <option value="court">Court</option>
             </select>

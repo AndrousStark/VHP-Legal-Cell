@@ -80,7 +80,7 @@ export const ENHANCED_PROFILES: EnhancedProfile[] = [
     subtitle: "Advocate-on-Record, Supreme Court of India",
     photo: "/images/dr-abhishek-atrey.jpg",
     bio: [
-      "Dr. Abhishek Atrey is a distinguished Supreme Court Advocate and Advocate-on-Record who has been at the forefront of legal advocacy for Hindu dharmic causes for nearly three decades. As the National Convenor of VHP Legal Cell (Vidhi Prakoshtha), he leads India's largest Hindu legal advocacy network, coordinating teams across 12 Khetras and 35+ Prants.",
+      "Dr. Abhishek Atrey is a distinguished Supreme Court Advocate and Advocate-on-Record who has been at the forefront of legal advocacy for Hindu dharmic causes for nearly three decades. As the National Convenor of VHP Legal Cell (Vidhi Prakoshtha), he leads India's largest Hindu legal advocacy network, coordinating teams across 12 Chetras and 35+ Prants.",
       "Enrolled as an Advocate in 1997 and designated as Advocate-on-Record in 2006, Dr. Atrey has represented the Government of India, State Governments, public sector undertakings, and significant institutions in landmark proceedings before the Supreme Court, High Courts, National Green Tribunal, and various tribunals across India.",
       "A prolific legal scholar, he has authored 3 books, published 20+ articles in leading legal journals, and made over 30 appearances on national television channels including Rajya Sabha TV, Sansad TV, and APN News, providing expert commentary on constitutional and legal matters of national importance.",
     ],
@@ -91,7 +91,7 @@ export const ENHANCED_PROFILES: EnhancedProfile[] = [
       { degree: "B.Sc. (Bachelor of Science)", institution: "University", year: "1992" },
     ],
     experience: [
-      { role: "National Convenor", org: "VHP Legal Cell (Vidhi Prakoshtha)", detail: "Leading India's largest Hindu legal advocacy network across 12 Khetras and 35+ Prants" },
+      { role: "National Convenor", org: "VHP Legal Cell (Vidhi Prakoshtha)", detail: "Leading India's largest Hindu legal advocacy network across 12 Chetras and 35+ Prants" },
       { role: "Advocate-on-Record", org: "Supreme Court of India", period: "Since 2006", detail: "Designated AoR practicing constitutional, civil, and public interest litigation" },
       { role: "'A' Panel Counsel for Government of India", org: "Supreme Court of India", period: "Since 2014", detail: "Senior panel representing the Union of India" },
       { role: "Standing Counsel for Govt. of Uttarakhand", org: "Supreme Court of India", detail: "Representing the State in all matters before the apex court" },

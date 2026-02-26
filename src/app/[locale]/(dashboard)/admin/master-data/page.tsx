@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
-import { KHETRAS } from "@/lib/map-config";
+import { CHETRAS } from "@/lib/map-config";
 import { ACTIVITY_TYPES, CASE_CATEGORIES, CASE_STATUSES } from "@/lib/constants";
 import {
   MapPin,
@@ -23,10 +23,10 @@ interface MasterSection {
 
 const SECTIONS: MasterSection[] = [
   {
-    title: "Khetras (Regions)",
+    title: "Chetras (Regions)",
     icon: MapPin,
-    count: KHETRAS.length,
-    items: KHETRAS.map((k) => ({ label: k.nameEn, meta: `${k.states.length} states` })),
+    count: CHETRAS.length,
+    items: CHETRAS.map((k) => ({ label: k.nameEn, meta: `${k.states.length} states` })),
   },
   {
     title: "Activity Types",

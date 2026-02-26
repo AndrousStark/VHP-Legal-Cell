@@ -32,7 +32,7 @@ const MILESTONES = [
   {
     year: "2022",
     title: "National Expansion",
-    description: "Legal Cell expands to all 12 Khetras with dedicated teams at Supreme Court and High Courts.",
+    description: "Legal Cell expands to all 12 Chetras with dedicated teams at Supreme Court and High Courts.",
   },
   {
     year: "2024",

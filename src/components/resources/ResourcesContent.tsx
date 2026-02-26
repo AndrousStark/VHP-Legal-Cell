@@ -48,12 +48,12 @@ const FAQS: FAQItem[] = [
   {
     id: 1,
     question: "How can I get legal help from VHP Legal Cell?",
-    answer: "You can contact us through the Contact page, visit any of our Khetra offices, or attend one of our Free Legal Clinics organized across India. Our advocates provide free consultation for Hindu legal causes.",
+    answer: "You can contact us through the Contact page, visit any of our Chetra offices, or attend one of our Free Legal Clinics organized across India. Our advocates provide free consultation for Hindu legal causes.",
   },
   {
     id: 2,
     question: "How do I volunteer with VHP Legal Cell?",
-    answer: "Advocates, law students, and legal professionals can register through the Volunteer Registration form on the Contact page. You will be assigned to your nearest Prant/Khetra based on your location and expertise.",
+    answer: "Advocates, law students, and legal professionals can register through the Volunteer Registration form on the Contact page. You will be assigned to your nearest Prant/Chetra based on your location and expertise.",
   },
   {
     id: 3,
@@ -63,12 +63,12 @@ const FAQS: FAQItem[] = [
   {
     id: 4,
     question: "Is VHP Legal Cell present in all states?",
-    answer: "Yes, we have presence across all 12 Khetras covering all Indian states through our network of 35+ Prants and hundreds of court-level advocates.",
+    answer: "Yes, we have presence across all 12 Chetras covering all Indian states through our network of 35+ Prants and hundreds of court-level advocates.",
   },
   {
     id: 5,
     question: "How are the Shiksha Vargs organized?",
-    answer: "Shiksha Vargs (training programs) are organized at Khetra and Prant levels throughout the year. They cover legal drafting, PIL filing, court procedures, and case research. Check the Activities page for upcoming programs.",
+    answer: "Shiksha Vargs (training programs) are organized at Chetra and Prant levels throughout the year. They cover legal drafting, PIL filing, court procedures, and case research. Check the Activities page for upcoming programs.",
   },
 ];
 

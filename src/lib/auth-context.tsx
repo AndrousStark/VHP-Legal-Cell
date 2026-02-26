@@ -19,7 +19,7 @@ export interface AuthUser {
   phone: string;
   role: RoleName;
   roleLevel: number;
-  khetraId?: string;
+  chetraId?: string;
   prantId?: string;
   courtId?: string;
   avatar?: string;
@@ -48,16 +48,16 @@ const MOCK_USERS: Record<string, AuthUser> = {
     phone: "9876543210",
     role: "NATIONAL_ADMIN",
     roleLevel: ROLES.NATIONAL_ADMIN,
-    khetraId: "delhi",
+    chetraId: "delhi",
   },
   "9876543211": {
     id: "usr_2",
     name: "Adv. Vikram Singh",
     nameHi: "अधि. विक्रम सिंह",
     phone: "9876543211",
-    role: "KHETRA_CONVENOR",
-    roleLevel: ROLES.KHETRA_CONVENOR,
-    khetraId: "braj-khetra",
+    role: "CHETRA_CONVENOR",
+    roleLevel: ROLES.CHETRA_CONVENOR,
+    chetraId: "braj-chetra",
   },
   "9876543212": {
     id: "usr_3",
@@ -66,7 +66,7 @@ const MOCK_USERS: Record<string, AuthUser> = {
     phone: "9876543212",
     role: "PRANT_CONVENOR",
     roleLevel: ROLES.PRANT_CONVENOR,
-    khetraId: "rajasthan",
+    chetraId: "rajasthan",
     prantId: "jaipur",
   },
 };
@@ -149,7 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (!user) {
         return {
           success: false,
-          message: "No account found for this number. Contact your Khetra Convenor.",
+          message: "No account found for this number. Contact your Chetra Convenor.",
         };
       }
 

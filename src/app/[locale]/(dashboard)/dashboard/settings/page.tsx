@@ -162,11 +162,11 @@ export default function SettingsPage() {
                           +91 {user.phone}
                         </span>
                       </div>
-                      {user.khetraId && (
+                      {user.chetraId && (
                         <div className="flex items-center gap-2 text-cream/50">
                           <MapPin className="h-3.5 w-3.5 text-cream/30" />
                           <span className="font-[family-name:var(--font-satoshi)] text-xs capitalize">
-                            {user.khetraId.replace(/-/g, " ")}
+                            {user.chetraId.replace(/-/g, " ")}
                           </span>
                         </div>
                       )}

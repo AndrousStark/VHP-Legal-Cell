@@ -183,7 +183,7 @@ export function LoginForm() {
                 </button>
 
                 <p className="text-center font-[family-name:var(--font-satoshi)] text-[11px] text-charcoal-light/50">
-                  Demo: Use 9876543210 (Admin), 9876543211 (Khetra), 9876543212 (Prant)
+                  Demo: Use 9876543210 (Admin), 9876543211 (Chetra), 9876543212 (Prant)
                 </p>
               </motion.form>
             )}

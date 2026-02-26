@@ -11,8 +11,8 @@ export interface TeamMember {
   nameHi: string;
   designation: string;
   designationHi: string;
-  level: "national" | "khetra" | "prant" | "court";
-  khetraId?: string;
+  level: "national" | "chetra" | "prant" | "court";
+  chetraId?: string;
   photo?: string;
   bio: string;
   expertise: string[];
@@ -30,7 +30,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     designationHi: "राष्ट्रीय संयोजक",
     level: "national",
     photo: "/images/dr-abhishek-atrey.jpg",
-    bio: "Supreme Court Advocate and National Convenor of VHP Legal Cell. Dr. Atrey leads the nationwide legal advocacy for Hindu causes, coordinating teams across 12 Khetras and 35+ Prants.",
+    bio: "Supreme Court Advocate and National Convenor of VHP Legal Cell. Dr. Atrey leads the nationwide legal advocacy for Hindu causes, coordinating teams across 12 Chetras and 35+ Prants.",
     expertise: ["Constitutional Law", "PIL", "Temple Rights", "Cow Protection"],
     cases: 500,
     experience: "25+ Years",
@@ -92,10 +92,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     slug: "adv-vikram-singh",
     name: "Adv. Vikram Singh",
     nameHi: "अधि. विक्रम सिंह",
-    designation: "Khetra Convenor — Braj",
+    designation: "Chetra Convenor — Braj",
     designationHi: "क्षेत्र संयोजक — ब्रज",
-    level: "khetra",
-    khetraId: "braj-khetra",
+    level: "chetra",
+    chetraId: "braj-chetra",
     bio: "Allahabad High Court advocate. Leads legal initiatives across Uttar Pradesh including Gyanvapi, Mathura, and other landmark temple cases.",
     expertise: ["Allahabad HC", "Temple Cases", "Gyanvapi"],
     cases: 80,
@@ -106,10 +106,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     slug: "adv-kavita-mishra",
     name: "Adv. Kavita Mishra",
     nameHi: "अधि. कविता मिश्रा",
-    designation: "Khetra Convenor — Rajasthan",
+    designation: "Chetra Convenor — Rajasthan",
     designationHi: "क्षेत्र संयोजक — राजस्थान",
-    level: "khetra",
-    khetraId: "rajasthan",
+    level: "chetra",
+    chetraId: "rajasthan",
     bio: "Rajasthan High Court advocate specializing in cow protection laws and anti-conversion PILs in Rajasthan.",
     expertise: ["Rajasthan HC", "Cow Protection", "PIL"],
     cases: 60,
@@ -120,10 +120,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     slug: "adv-mohan-das",
     name: "Adv. Mohan Das",
     nameHi: "अधि. मोहन दास",
-    designation: "Khetra Convenor — Dakshin",
+    designation: "Chetra Convenor — Dakshin",
     designationHi: "क्षेत्र संयोजक — दक्षिण",
-    level: "khetra",
-    khetraId: "dakshin",
+    level: "chetra",
+    chetraId: "dakshin",
     bio: "Karnataka High Court advocate fighting for temple administration reform and religious freedom in South India.",
     expertise: ["Karnataka HC", "Temple Admin", "Religious Freedom"],
     cases: 45,
@@ -160,7 +160,7 @@ export interface CaseData {
   nextHearing?: string;
   lawyer: string;
   state: string;
-  khetraId: string;
+  chetraId: string;
   summary: string;
 }
 
@@ -169,42 +169,42 @@ export const CASES: CaseData[] = [
     id: 1, slug: "gyanvapi-survey", title: "Gyanvapi Mosque Survey Case", titleHi: "ज्ञानवापी मस्जिद सर्वेक्षण वाद",
     caseNumber: "SC/2022/PIL/4567", court: "Supreme Court of India", courtType: "supreme",
     category: "temple", status: "ongoing", filedDate: "2022-05-16", nextHearing: "2026-03-15",
-    lawyer: "Adv. Vishnu Shankar Jain", state: "Uttar Pradesh", khetraId: "braj-khetra",
+    lawyer: "Adv. Vishnu Shankar Jain", state: "Uttar Pradesh", chetraId: "braj-chetra",
     summary: "Petition seeking archaeological survey of Gyanvapi mosque premises in Varanasi to establish the pre-existing temple structure.",
   },
   {
     id: 2, slug: "mathura-krishna-janmabhoomi", title: "Krishna Janmabhoomi Case", titleHi: "कृष्ण जन्मभूमि वाद",
     caseNumber: "AHC/2020/CS/1234", court: "Allahabad High Court", courtType: "high",
     category: "temple", status: "ongoing", filedDate: "2020-09-28", nextHearing: "2026-04-10",
-    lawyer: "Adv. Hari Shankar Jain", state: "Uttar Pradesh", khetraId: "braj-khetra",
+    lawyer: "Adv. Hari Shankar Jain", state: "Uttar Pradesh", chetraId: "braj-chetra",
     summary: "Suit for restoration of entire 13.37 acres of Krishna Janmabhoomi complex in Mathura.",
   },
   {
     id: 3, slug: "cow-protection-rajasthan", title: "Cow Protection PIL — Rajasthan", titleHi: "गो संरक्षण जनहित याचिका — राजस्थान",
     caseNumber: "RHC/2024/PIL/789", court: "Rajasthan High Court", courtType: "high",
     category: "cow", status: "won", filedDate: "2024-01-15",
-    lawyer: "Adv. Kavita Mishra", state: "Rajasthan", khetraId: "rajasthan",
+    lawyer: "Adv. Kavita Mishra", state: "Rajasthan", chetraId: "rajasthan",
     summary: "PIL seeking stricter enforcement of cow protection laws and ban on illegal cattle transport across state borders.",
   },
   {
     id: 4, slug: "anti-conversion-up", title: "Anti-Conversion Law Challenge", titleHi: "धर्मांतरण निरोध कानून चुनौती",
     caseNumber: "SC/2023/WP/5678", court: "Supreme Court of India", courtType: "supreme",
     category: "conversion", status: "ongoing", filedDate: "2023-03-10", nextHearing: "2026-03-28",
-    lawyer: "Adv. Ramesh Kumar", state: "Delhi", khetraId: "delhi",
+    lawyer: "Adv. Ramesh Kumar", state: "Delhi", chetraId: "delhi",
     summary: "Defending the constitutional validity of state anti-conversion laws challenged by various petitioners.",
   },
   {
     id: 5, slug: "temple-land-encroachment", title: "Temple Land Encroachment — Bengaluru", titleHi: "मंदिर भूमि अतिक्रमण — बेंगलुरु",
     caseNumber: "KHC/2025/CS/456", court: "Karnataka High Court", courtType: "high",
     category: "temple", status: "filed", filedDate: "2025-11-20", nextHearing: "2026-02-28",
-    lawyer: "Adv. Mohan Das", state: "Karnataka", khetraId: "dakshin",
+    lawyer: "Adv. Mohan Das", state: "Karnataka", chetraId: "dakshin",
     summary: "Petition against illegal encroachment on ancient Shiva temple land in Bengaluru by commercial developers.",
   },
   {
     id: 6, slug: "waqf-act-challenge", title: "Waqf Act Amendment Challenge", titleHi: "वक़्फ अधिनियम संशोधन चुनौती",
     caseNumber: "SC/2024/WP/9012", court: "Supreme Court of India", courtType: "supreme",
     category: "waqf", status: "ongoing", filedDate: "2024-06-15", nextHearing: "2026-05-02",
-    lawyer: "Dr. Abhishek Atrey", state: "Delhi", khetraId: "delhi",
+    lawyer: "Dr. Abhishek Atrey", state: "Delhi", chetraId: "delhi",
     summary: "Challenging overreach of Waqf Board claiming Hindu temple properties as Waqf assets.",
   },
 ];
@@ -428,7 +428,7 @@ export interface ActivityData {
   date: string;
   endDate?: string;
   location: string;
-  khetraId: string;
+  chetraId: string;
   description: string;
   attendees: number;
   organizer: string;
@@ -448,25 +448,25 @@ export const ACTIVITIES: ActivityData[] = [
     id: 1, slug: "national-seminar-vigyan-bhawan-2026",
     title: "National Seminar at Vigyan Bhawan", titleHi: "विज्ञान भवन में राष्ट्रीय सेमिनार",
     type: "seminar", status: "completed", date: "2026-02-15", endDate: "2026-02-16",
-    location: "Vigyan Bhawan, New Delhi", khetraId: "delhi",
+    location: "Vigyan Bhawan, New Delhi", chetraId: "delhi",
     description: "Annual national seminar bringing together 250+ advocates to discuss legal strategy for upcoming cases across Supreme Court and High Courts.",
     attendees: 250, organizer: "National Legal Cell",
     image: "/images/india-people-art.jpg",
     chiefGuest: "Dr. Abhishek Atrey",
-    keyDignitaries: ["Dr. Abhishek Atrey", "Senior Advocates from SC", "Khetra Convenors"],
+    keyDignitaries: ["Dr. Abhishek Atrey", "Senior Advocates from SC", "Chetra Convenors"],
     agenda: ["National case strategy review", "Regional activity reporting", "Temple case updates", "Anti-conversion law advocacy"],
     highlights: ["250+ advocates from across India", "Strategy for Gyanvapi and Mathura cases", "Annual coordination framework established"],
-    outcome: "Annual strategy finalized for 2026. Regional targets set for all 12 Khetras.",
+    outcome: "Annual strategy finalized for 2026. Regional targets set for all 12 Chetras.",
   },
   {
     id: 2, slug: "free-legal-clinic-varanasi",
     title: "Free Legal Clinic — Varanasi", titleHi: "मुफ्त कानूनी क्लिनिक — वाराणसी",
     type: "legal-clinic", status: "completed", date: "2026-02-05", endDate: "2026-02-07",
-    location: "VHP Office, Varanasi", khetraId: "braj-khetra",
+    location: "VHP Office, Varanasi", chetraId: "braj-chetra",
     description: "Three-day free legal consultation camp providing guidance on property rights, temple issues, and family law to 500+ citizens.",
-    attendees: 500, organizer: "Braj Khetra",
+    attendees: 500, organizer: "Braj Chetra",
     image: "/images/temple-diyas.jpg",
-    chiefGuest: "Adv. Vikram Singh, Braj Khetra Convenor",
+    chiefGuest: "Adv. Vikram Singh, Braj Chetra Convenor",
     agenda: ["Property rights consultation", "Temple dispute guidance", "Family law advice", "RTI application assistance"],
     highlights: ["500+ citizens received free legal consultation", "Focus on temple property rights", "Women's legal rights workshops"],
     outcome: "500+ citizens received free legal guidance. 50+ cases identified for further follow-up.",
@@ -475,11 +475,11 @@ export const ACTIVITIES: ActivityData[] = [
     id: 3, slug: "shiksha-varg-jaipur-2026",
     title: "Prant Shiksha Varg — Jaipur", titleHi: "प्रांत शिक्षा वर्ग — जयपुर",
     type: "shiksha-varg", status: "completed", date: "2026-02-20", endDate: "2026-02-22",
-    location: "Rajasthan University, Jaipur", khetraId: "rajasthan",
+    location: "Rajasthan University, Jaipur", chetraId: "rajasthan",
     description: "Three-day legal training program for 200+ advocates covering PIL drafting, case research, and court procedures.",
-    attendees: 200, organizer: "Rajasthan Khetra",
+    attendees: 200, organizer: "Rajasthan Chetra",
     image: "/images/navratri-celebration.jpg",
-    chiefGuest: "Adv. Kavita Mishra, Rajasthan Khetra Convenor",
+    chiefGuest: "Adv. Kavita Mishra, Rajasthan Chetra Convenor",
     agenda: ["PIL drafting workshop", "Supreme Court procedure training", "Case research methodology", "Court documentation standards"],
     highlights: ["200+ advocates trained", "Hands-on PIL drafting workshop", "Expert sessions on SC procedures"],
     outcome: "200+ advocates trained in PIL drafting and court procedures.",
@@ -488,9 +488,9 @@ export const ACTIVITIES: ActivityData[] = [
     id: 4, slug: "cow-protection-rally-bhopal",
     title: "Cow Protection Awareness Rally — Bhopal", titleHi: "गो संरक्षण जागरूकता रैली — भोपाल",
     type: "rally", status: "upcoming", date: "2026-03-15",
-    location: "Lal Parade Ground, Bhopal", khetraId: "madhya-bharat",
+    location: "Lal Parade Ground, Bhopal", chetraId: "madhya-bharat",
     description: "Peaceful awareness rally demanding stricter enforcement of cow protection laws in Madhya Pradesh.",
-    attendees: 0, organizer: "Madhya Bharat Khetra",
+    attendees: 0, organizer: "Madhya Bharat Chetra",
     image: "/images/india-flag.jpg",
     agenda: ["Peaceful awareness march", "Public addresses on cow protection laws", "Signature campaign for stricter enforcement"],
     highlights: ["Expected participation from across Madhya Pradesh", "Support from local VHP and Bajrang Dal units"],
@@ -499,20 +499,20 @@ export const ACTIVITIES: ActivityData[] = [
     id: 5, slug: "temple-rights-workshop-bengaluru",
     title: "Temple Rights Workshop — Bengaluru", titleHi: "मंदिर अधिकार कार्यशाला — बेंगलुरु",
     type: "workshop", status: "upcoming", date: "2026-03-22", endDate: "2026-03-23",
-    location: "ISKCON Auditorium, Bengaluru", khetraId: "dakshin",
+    location: "ISKCON Auditorium, Bengaluru", chetraId: "dakshin",
     description: "Workshop on temple administration laws, government control of Hindu temples, and legal remedies available.",
-    attendees: 0, organizer: "Dakshin Khetra",
+    attendees: 0, organizer: "Dakshin Chetra",
     image: "/images/golden-om.jpg",
     agenda: ["Temple administration legal framework", "Government control of Hindu temples", "Legal remedies for temple committees", "Case studies from Karnataka"],
     highlights: ["Expert panels on temple administration reform", "Discussion on Karnataka temple law"],
   },
   {
-    id: 6, slug: "khetra-meeting-ahmedabad",
-    title: "Khetra Coordination Meeting — Ahmedabad", titleHi: "क्षेत्र समन्वय बैठक — अहमदाबाद",
+    id: 6, slug: "chetra-meeting-ahmedabad",
+    title: "Chetra Coordination Meeting — Ahmedabad", titleHi: "क्षेत्र समन्वय बैठक — अहमदाबाद",
     type: "meeting", status: "upcoming", date: "2026-04-05",
-    location: "Gujarat Vidyapith, Ahmedabad", khetraId: "paschim",
-    description: "Quarterly coordination meeting of Paschim Khetra to review ongoing cases and plan next quarter activities.",
-    attendees: 0, organizer: "Paschim Khetra",
+    location: "Gujarat Vidyapith, Ahmedabad", chetraId: "paschim",
+    description: "Quarterly coordination meeting of Paschim Chetra to review ongoing cases and plan next quarter activities.",
+    attendees: 0, organizer: "Paschim Chetra",
     image: "/images/rama-navami.jpg",
     agenda: ["Quarterly case review", "Budget allocation for legal activities", "New advocate onboarding", "Regional event planning"],
   },
@@ -522,7 +522,7 @@ export const ACTIVITIES: ActivityData[] = [
     id: 7, slug: "ayodhya-national-meet-2023",
     title: "National Advocates Meet — Ayodhya", titleHi: "राष्ट्रीय अधिवक्ता सम्मेलन — अयोध्या",
     type: "conference", status: "completed", date: "2023-04-17", endDate: "2023-04-18",
-    location: "Ayodhya, Uttar Pradesh", khetraId: "braj-khetra",
+    location: "Ayodhya, Uttar Pradesh", chetraId: "braj-chetra",
     description: "Historic national meet of 500+ VHP Legal Cell advocates in Ayodhya. The conference passed a landmark resolution opposing same-sex marriage in the Supreme Court of India, reaffirming the organization's commitment to traditional Hindu family values and constitutional principles.",
     attendees: 500, organizer: "National Legal Cell",
     image: "/images/rama-navami.jpg",
@@ -539,7 +539,7 @@ export const ACTIVITIES: ActivityData[] = [
       "500+ advocates from across India gathered",
       "Landmark resolution passed opposing same-sex marriage",
       "Strategy formulated for Gyanvapi and Mathura cases",
-      "Coordination between 12 Khetras strengthened",
+      "Coordination between 12 Chetras strengthened",
     ],
     socialLinks: [
       { label: "VHP Digital (X)", url: "https://x.com/VHPDigital/status/1650329745954066437" },
@@ -556,7 +556,7 @@ export const ACTIVITIES: ActivityData[] = [
     id: 8, slug: "retired-judges-meet-delhi-2024",
     title: "Distinguished Judges Conference — Delhi", titleHi: "विशिष्ट न्यायाधीश सम्मेलन — दिल्ली",
     type: "conference", status: "completed", date: "2024-09-15",
-    location: "New Delhi", khetraId: "delhi",
+    location: "New Delhi", chetraId: "delhi",
     description: "A landmark conference attended by 30 retired Supreme Court and High Court judges, senior bureaucrats, and legal experts. The meet discussed critical issues including the Waqf Amendment Bill, religious conversions, and constitutional protections for Hindu dharmic rights.",
     attendees: 150, organizer: "National Legal Cell",
     image: "/images/supreme-court.jpg",
@@ -593,9 +593,9 @@ export const ACTIVITIES: ActivityData[] = [
     id: 9, slug: "prayagraj-legal-awareness-2024",
     title: "Legal Awareness Session — Prayagraj", titleHi: "विधिक जागरूकता सत्र — प्रयागराज",
     type: "seminar", status: "completed", date: "2024-12-15",
-    location: "Allahabad High Court Library Hall, Prayagraj", khetraId: "braj-khetra",
+    location: "Allahabad High Court Library Hall, Prayagraj", chetraId: "braj-chetra",
     description: "A high-profile legal awareness session held at the Allahabad High Court library hall. The event featured discussions on Uniform Civil Code, Waqf Amendment Act, and religious conversion prevention. The session gained national attention and sparked an important national debate on the role of judiciary and legal advocacy.",
-    attendees: 200, organizer: "VHP Legal Cell, Braj Khetra",
+    attendees: 200, organizer: "VHP Legal Cell, Braj Chetra",
     image: "/images/golden-om.jpg",
     chiefGuest: "Justice Shekhar Kumar Yadav, Allahabad HC",
     keyDignitaries: [
@@ -629,7 +629,7 @@ export const ACTIVITIES: ActivityData[] = [
     id: 10, slug: "mahakumbh-legal-session-2025",
     title: "VHP Legal Cell Session — Mahakumbh 2025", titleHi: "विहिप विधि प्रकोष्ठ सत्र — महाकुम्भ 2025",
     type: "conference", status: "completed", date: "2025-01-20", endDate: "2025-02-10",
-    location: "Mahakumbh Mela, Prayagraj", khetraId: "braj-khetra",
+    location: "Mahakumbh Mela, Prayagraj", chetraId: "braj-chetra",
     description: "VHP Legal Cell held special sessions during the historic Mahakumbh 2025 in Prayagraj. Advocates from across India participated in legal awareness camps for pilgrims, discussed pending temple cases, and coordinated strategy for upcoming Supreme Court hearings. The event was part of VHP's larger presence at the Mahakumbh.",
     attendees: 1000, organizer: "National Legal Cell",
     image: "/images/temple-diyas.jpg",
@@ -637,7 +637,7 @@ export const ACTIVITIES: ActivityData[] = [
     keyDignitaries: [
       "Dr. Abhishek Atrey",
       "National VHP Leadership",
-      "Advocates from 12 Khetras",
+      "Advocates from 12 Chetras",
       "Legal experts and scholars",
     ],
     agenda: [

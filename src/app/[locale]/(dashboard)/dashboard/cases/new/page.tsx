@@ -15,7 +15,7 @@ import {
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { useAuth } from "@/lib/auth-context";
 import { CASE_CATEGORIES, CASE_STATUSES } from "@/lib/constants";
-import { KHETRAS } from "@/lib/map-config";
+import { CHETRAS } from "@/lib/map-config";
 import { cn } from "@/lib/utils";
 import { Link } from "@/i18n/routing";
 
@@ -50,7 +50,7 @@ interface FormData {
   lawyer: string;
   // Step 3 — Case Details
   state: string;
-  khetraId: string;
+  chetraId: string;
   nextHearing: string;
   summary: string;
 }
@@ -66,7 +66,7 @@ const INITIAL_FORM: FormData = {
   filedDate: "",
   lawyer: "",
   state: "",
-  khetraId: "",
+  chetraId: "",
   nextHearing: "",
   summary: "",
 };
@@ -102,8 +102,8 @@ function getCourtTypeLabel(value: string): string {
   return found ? found.label : value;
 }
 
-function getKhetraLabel(value: string): string {
-  const found = KHETRAS.find((k) => k.id === value);
+function getChetraLabel(value: string): string {
+  const found = CHETRAS.find((k) => k.id === value);
   return found ? found.nameEn : value;
 }
 
@@ -330,12 +330,12 @@ function StepCaseDetails({
           />
         </div>
         <div>
-          <FieldLabel required>Khetra</FieldLabel>
+          <FieldLabel required>Chetra</FieldLabel>
           <SelectInput
-            value={form.khetraId}
-            onChange={(v) => setField("khetraId", v)}
-            options={KHETRAS.map((k) => ({ value: k.id, label: k.nameEn }))}
-            placeholder="Select khetra"
+            value={form.chetraId}
+            onChange={(v) => setField("chetraId", v)}
+            options={CHETRAS.map((k) => ({ value: k.id, label: k.nameEn }))}
+            placeholder="Select chetra"
           />
         </div>
       </div>
@@ -423,7 +423,7 @@ function StepPreview({
 
       <PreviewSection label="Case Details" onEdit={() => goToStep(3)}>
         <PreviewRow label="State" value={form.state} />
-        <PreviewRow label="Khetra" value={getKhetraLabel(form.khetraId)} />
+        <PreviewRow label="Chetra" value={getChetraLabel(form.chetraId)} />
         <PreviewRow label="Next Hearing" value={form.nextHearing || "Not set"} />
         <PreviewRow label="Summary" value={form.summary} />
       </PreviewSection>
@@ -454,7 +454,7 @@ export default function NewCasePage() {
       case 2:
         return !!(form.courtName && form.courtType && form.caseNumber && form.filedDate && form.lawyer);
       case 3:
-        return !!(form.state && form.khetraId && form.summary);
+        return !!(form.state && form.chetraId && form.summary);
       case 4:
         return true;
       default:
